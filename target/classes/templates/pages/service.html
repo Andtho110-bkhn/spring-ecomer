@@ -1,0 +1,11 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      xmlns:with="http://www.thymeleaf.org/extras/with"
+      layout:decorate="~{layout}"
+      with:title="'Service, template'">
+	<th:block layout:fragment="contentTEST">
+		<p>This is an example project to support rendering both full pages and partial pages</p>
+	    <strong th:text="${str}"></strong>
+	</th:block>
+</html>
