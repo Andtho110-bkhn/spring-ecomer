@@ -5,7 +5,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 
-import vn.t3h.sẻvices.HomeService;
+import vn.t3h.services.HomeService;
 
 @Controller
 public class HomeController {
