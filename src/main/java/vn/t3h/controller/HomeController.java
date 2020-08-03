@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import vn.t3h.services.HomeService;
 
 @Controller
-public class HomeController {
+public class HomeController extends BaseController {
 
 	static final String VIEW_INDEX = "pages/index";
 	

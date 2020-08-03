@@ -4,7 +4,7 @@
 	<div id="top-header">
 		<div class="container">
 			<ul class="header-links pull-left">
-				<li><a href="#"><i class="fa fa-phone"></i> +021-95-51-84</a></li>
+				<li><a href="#"><i class="fa fa-phone"></i><span th:text="${configs.get('hotline')}"></span></a></li>
 				<li><a href="#"><i class="fa fa-envelope-o"></i> email@email.com</a></li>
 				<li><a href="#"><i class="fa fa-map-marker"></i> 1734 Stonecoal Road</a></li>
 			</ul>
@@ -122,3 +122,22 @@
 	</div>
 	<!-- /MAIN HEADER -->
 </header>
+<!-- NAVIGATION -->
+<nav id="navigation">
+	<!-- container -->
+	<div class="container">
+		<!-- responsive-nav -->
+		<div id="responsive-nav">
+			<!-- NAV -->
+			<ul class="main-nav nav navbar-nav">
+				<li th:each="menu : ${menus}"> 
+					<a th:href="${menu.getHref()}" th:text="${menu.getLable()}"></a>
+				</li>
+			</ul>
+			<!-- /NAV -->
+		</div>
+		<!-- /responsive-nav -->
+	</div>
+	<!-- /container -->
+</nav>
+<!-- /NAVIGATION -->
