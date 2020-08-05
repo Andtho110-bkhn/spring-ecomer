@@ -3,8 +3,10 @@ import vn.t3h.model.Menu;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
 
 import javax.annotation.PostConstruct;
+import javax.validation.constraints.NotNull;
 
 import org.springframework.stereotype.Service;
 
@@ -22,5 +24,13 @@ public class MenuService {
 	private List<Menu> listMenus = new ArrayList<Menu>();
 	public List<Menu> getMenu() {
 		return listMenus;
+	}
+	
+	public void addMenu(@NotNull Menu menu) {
+		var newMenus = listMenus.stream()
+				.filter(item -> item.getId() != menu.getId())
+				.collect(Collectors.toList());
+		newMenus.add(menu);
+		listMenus = newMenus;
 	}
 }
