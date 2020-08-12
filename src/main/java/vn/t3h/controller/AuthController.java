@@ -15,12 +15,13 @@ import java.io.IOException;
 import java.util.Map;
 
 @Controller
-public class AuthController {
+@RequestMapping("/auth")
+public class AuthController extends BaseController {
 
     private static final Logger LOGGER = LoggerFactory.getLogger(AuthController.class);
 
     @RequestMapping(value={"/login"}, method = RequestMethod.GET)
-    public String login(@RequestParam(value = "error", required = false) boolean error,
+    public String login(@RequestParam(value = "error", required = false, defaultValue = "false") boolean error,
                         Map<String, Object> model,
                         HttpServletRequest httpServletRequest) throws IOException {
         Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
@@ -30,7 +31,7 @@ public class AuthController {
         if(error) {
             model.put("message", "Login failed. Please check username and password.");
         }
-        return "th_login";
+        return "pages/login";
     }
 
     @RequestMapping(value={"/auto-redirect"}, method = RequestMethod.GET)
@@ -40,7 +41,7 @@ public class AuthController {
         if(request.isUserInRole("BACKEND")) {
             return "admin/index";
         } else {
-            return "pages/index";
+            return "/";
         }
     }
 

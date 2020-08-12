@@ -16,13 +16,12 @@ import vn.t3h.services.MenuService;
 @Controller
 public class BaseController {
 	
-	private Logger log = LoggerFactory.getLogger(BaseController.class);
+	Logger log = LoggerFactory.getLogger(BaseController.class);
 	private @Autowired MenuService mnService;
 	
 	@ModelAttribute("menus")
 	public List<Menu> listMenus() {
 		var listMenus = mnService.getMenu();
-		log.info("listMenus size: {}", listMenus.size());
 		return listMenus;
 	}
 	
